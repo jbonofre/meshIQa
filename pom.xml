@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.meshiq.amq</groupId>
-    <artifactId>meshiq-amq-parent</artifactId>
+    <artifactId>meshiqa-parent</artifactId>
     <version>0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 

@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.meshiq.amq</groupId>
-        <artifactId>meshiq-amq-parent</artifactId>
+        <artifactId>meshiqa-parent</artifactId>
         <version>0.9-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>meshiq-amq</artifactId>
+    <artifactId>meshiqa</artifactId>
     <packaging>pom</packaging>
 
     <dependencies>

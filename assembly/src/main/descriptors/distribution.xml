@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assembly>
 
-    <id>meshiq-amq</id>
+    <id>meshiqa</id>
 
     <formats>
         <format>tar.gz</format>
