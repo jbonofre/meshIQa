@@ -10,7 +10,17 @@
     <fileSets>
 
         <fileSet>
-            <directory>src/distribution</directory>
+            <directory>..</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>README.md</include>
+                <include>LICENSE</include>
+            </includes>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/distribution</directory>
             <outputDirectory></outputDirectory>
             <excludes>
                 <exclude>bin/**</exclude>
@@ -19,8 +29,157 @@
                 <exclude>conf/*.cert</exclude>
             </excludes>
             <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/distribution</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>bin/macosx/wrapper.conf</include>
+                <include>bin/linux-*/wrapper.conf</include>
+            </includes>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/distribution</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>bin/linux-*/wrapper</include>
+                <include>bin/linux-*/libwrapper.so</include>
+                <include>bin/macosx/wrapper</include>
+                <include>bin/maxosx/libwrapper.jnilib</include>
+            </includes>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/distribution</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>bin/meshIQa</include>
+                <include>bin/meshIQa-diag</include>
+                <include>bin/macosx/meshIQa</include>
+                <include>bin/linux-*/meshIQa</include>
+            </includes>
+            <directoryMode>0755</directoryMode>
+            <fileMode>0755</fileMode>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/distribution</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>bin/setenv</include>
+            </includes>
+            <directoryMode>0755</directoryMode>
+            <fileMode>0644</fileMode>
+            <lineEnding>unix</lineEnding>
         </fileSet>
 
     </fileSets>
+
+    <dependencySets>
+
+        <!-- copy over jar files -->
+        <dependencySet>
+            <outputDirectory>bin</outputDirectory>
+            <unpack>false</unpack>
+            <outputFileNameMapping>meshIQa.jar</outputFileNameMapping>
+            <includes>
+                <include>org.apache.activemq:activemq-run</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </dependencySet>
+
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <include>org.slf4j:slf4j-api</include>
+                <include>org.slf4j:jcl-over-slf4j</include>
+                <include>org.apache.activemq:activemq-client</include>
+                <include>org.apache.activemq:activemq-broker</include>
+                <include>org.apache.activemq:activemq-openwire-legacy</include>
+                <include>org.apache.activemq:activemq-kahadb-store</include>
+                <include>org.apache.activemq:activemq-spring</include>
+                <include>org.apache.activemq:activemq-console</include>
+                <include>org.apache.activemq:activemq-jaas</include>
+                <include>org.apache.activemq.protobuf:activemq-protobuf</include>
+                <include>jakarta.jms:jakarta.jms-api</include>
+                <include>jakarta.transaction:jakarta.transaction-api</include>
+                <include>jakarta.xml.bind:jakarta.xml.bind-api</include>
+                <include>org.glassfish.jaxb:jaxb-runtime</include>
+                <include>org.glassfish.jaxb:jaxb-core</include>
+                <include>com.sun.istack:istack-commons-runtime</include>
+                <include>jakarta.activation:jakarta.activation-api</include>
+                <include>commons-logging:commons-logging</include>
+                <include>org.fusesource.hawtbuf:hawtbuf</include>
+                <include>org.fusesource.hawtbuf:hawtbuf-proto</include>
+                <include>com.fasterxml.jackson.core:jackson-core</include>
+                <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                <include>com.fasterxml.jackson.core:jackson-databind</include>
+            </includes>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>lib/optional</outputDirectory>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <include>org.apache.activemq:activemq-amqp</include>
+                <include>org.apache.activemq:activemq-mqtt</include>
+                <include>org.apache.activemq:activemq-stomp</include>
+                <include>org.apache.activemq:activemq-http</include>
+                <include>org.apache.activemq:activemq-jdbc-store</include>
+                <include>org.apache.activemq:activemq-jms-pool</include>
+                <include>org.apache.activemq:activemq-pool</include>
+                <include>org.apache.activemq:activemq-shiro</include>
+                <include>common-beanutils:common-beanutils</include>
+                <include>commons-collections:commons-collections</include>
+                <include>org.apache.commons:commons-dbcp2</include>
+                <include>org.apache.commons:commons-pool2</include>
+                <include>commons-codec:commons-codec</include>
+                <include>org.apache.commons:commons-lang3</include>
+                <include>org.apache.logging.log4j:log4j-slf4j2-impl</include>
+                <include>org.apache.logging.log4j:log4j-api</include>
+                <include>org.apache.logging.log4j:log4j-core</include>
+                <include>jakarta.resource:jakarta.resource-api</include>
+                <include>org.apache.httpcomponents:httpclient</include>
+                <include>org.apache.httpcomponents:httpcore</include>
+                <include>org.apache.xbean:xbean-spring</include>
+                <include>org.springframework:spring-aop</include>
+                <include>org.springframework:spring-beans</include>
+                <include>org.springframework:spring-context</include>
+                <include>org.springframework:spring-core</include>
+                <include>org.springframework:spring-expression</include>
+                <include>org.springframework:spring-jms</include>
+                <include>org.springframework:spring-oxm</include>
+                <include>org.springframework:spring-tx</include>
+                <include>com.thoughtworks.xstream:xstream</include>
+                <include>xpp3:xpp3</include>
+                <include>org.codehaus.jettison:jettison</include>
+                <include>org.apache.velocity:velocity-engine-core</include>
+                <include>org.apache.servicemix.bundles:org.apache.servicemix.bundles.josql</include>
+                <include>org.jasypt:jasypt</include>
+                <include>org.jasypt:jasypt-spring4</include>
+                <include>org.jmdns:jmdns</include>
+                <include>org.apache.qpid:proton-j</include>
+                <include>${pom.groupId}:activemq-runtime-config</include>
+                <include>org.jvnet.jaxb:jaxb-plugins-runtime</include>
+
+                <!-- Apache Shiro dependencies: -->
+                <include>org.apache.shiro:shiro-core</include>
+                <include>org.apache.shiro:shiro-spring</include>
+            </includes>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+        </dependencySet>
+
+    </dependencySets>
 
 </assembly>
